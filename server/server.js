@@ -30,7 +30,7 @@ app.get('/api/auth', auth, (req,res)=>{
 
 app.get('/api/logout', auth, (req,res)=>{
     req.user.deleteToken(req.token,(err, user)=>{
-        if(err) return err.status(400).send(err);
+        if(err) return res.status(400).send(err);
         res.sendStatus(200);
     })
 })

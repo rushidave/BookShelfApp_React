@@ -88,7 +88,7 @@ userSchema.statics.findByToken = function(token, cb){
 userSchema.methods.deleteToken = function(token, cb){
     var user = this;
 
-    User.update({$unset:{token:1}}, (err, user)=>{
+    user.update({$unset:{token:1}}, (err, user)=>{
         if(err) return cb(err);
         cb(null, user)
     })
